@@ -14,7 +14,7 @@ import net.minecraftforge.client.event.ClientChatReceivedEvent;
 
 public class GuildToggle implements ICommand {
 
-	public boolean x = true;
+	public String x;
 
 	@Override
 	public int compareTo(Object arg0) {
@@ -48,11 +48,11 @@ public class GuildToggle implements ICommand {
 				sender.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + "No arguments supplied"));
 			}
 			else if (args[0].equalsIgnoreCase("off")){
-				x = false;
+				x = "false";
 				sender.addChatMessage(new ChatComponentTranslation(EnumChatFormatting.DARK_RED + "Guild Chat Disabled "));
 			}
 			else if (args[0].equalsIgnoreCase("on")){
-				x = true;
+				x = "true";
 				sender.addChatMessage(new ChatComponentTranslation(EnumChatFormatting.DARK_GREEN + "Guild Chat Enabled "));
 			}
 			else {sender.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + "What on earth was that??"));
@@ -81,16 +81,16 @@ public class GuildToggle implements ICommand {
 		return false;
 	}
 
-	public void checkChat(ClientChatReceivedEvent e, boolean x){
+	public void checkChat(ClientChatReceivedEvent e, String x){
         if(e.type!=0){
             return;
         }
         String chat = e.message.getFormattedText().replaceAll("\u00A7.", "");
-        if(chat.contains(":") || !chat.startsWith("Guild > ")){
+        if(chat.contains(":") || !chat.contains("Guild > ")){
             return;
         }
-        if (x==false){
-        if (chat.startsWith("Guild > ")){
+        if (x=="false"){
+        if (chat.contains("Guild > ")){
            e.setCanceled(true);
         }
         else {
