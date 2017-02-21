@@ -21,6 +21,7 @@ public class ExampleMod
     public void init(FMLInitializationEvent event)
     {
     	System.out.println("Guild Toggle Enabled");
+        MinecraftForge.EVENT_BUS.register(new ChatHandler());
     	ClientCommandHandler.instance.registerCommand((ICommand)new GuildToggle());
     }
     
