@@ -10,12 +10,10 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.EnumChatFormatting;
-import net.minecraftforge.client.event.ClientChatReceivedEvent;
-import net.minecraftforge.fml.common.Mod.EventHandler;
 
 public class GuildToggle implements ICommand {
 
-	public Boolean x;
+	public static boolean x;
 
 	@Override
 	public int compareTo(Object arg0) {
@@ -56,8 +54,8 @@ public class GuildToggle implements ICommand {
 				x = true;
 				sender.addChatMessage(new ChatComponentTranslation(EnumChatFormatting.DARK_GREEN + "Guild Chat Enabled "));
 			}
-			else {sender.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + "What on earth was that??"));
-		}}
+			else {sender.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + "What on earth was that??"));}
+		}
 			catch (Exception e){
 				e.printStackTrace();
 			}
@@ -80,24 +78,5 @@ public class GuildToggle implements ICommand {
 	public boolean isUsernameIndex(String[] args, int index) {
 		// TODO Auto-generated method stub
 		return false;
-	}
-	
-	@EventHandler
-	public void checkChat(ClientChatReceivedEvent e){
-        if(e.type!=0){
-            return;
-        }
-        String chat = e.message.getFormattedText().replaceAll("\u00A7.", "");
-        if(chat.contains(":") || !chat.contains("Guild > ")){
-            return;
-        }
-        if (x==false){
-        if (chat.contains("Guild > ")){
-           e.setCanceled(true);
-        }
-        else {
-        	return;
-        }
-        }
 	}
 }
