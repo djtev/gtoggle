@@ -1,4 +1,4 @@
-package com.example.examplemod;
+package uk.tjevans.guildtoggle;
 
 import net.minecraft.command.ICommand;
 import net.minecraftforge.client.ClientCommandHandler;
