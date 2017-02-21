@@ -1,0 +1,16 @@
+[
+{
+  "modid": "guildtoggle",
+  "name": "Guild Toggle",
+  "description": "Guild toggle mod hypixel",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["tom396"],
+  "credits": "The Forge and FML guys, for making this example",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
