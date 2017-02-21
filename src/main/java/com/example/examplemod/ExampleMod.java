@@ -1,10 +1,7 @@
 package com.example.examplemod;
 
-import java.io.File;
-
 import net.minecraft.command.ICommand;
 import net.minecraftforge.client.ClientCommandHandler;
-import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -16,7 +13,6 @@ public class ExampleMod
 {
     public static final String MODID = "guildtoggle";
     public static final String VERSION = "0.1";
-    public static Configuration config;
     
     public void preinit(FMLPreInitializationEvent event){
      }
