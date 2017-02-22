@@ -1,4 +1,4 @@
-package uk.tjevans.guildtoggle;
+package guildtoggle;
 
 import java.util.ArrayList;
 import java.util.List;
