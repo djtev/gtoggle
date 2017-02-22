@@ -1,8 +1,11 @@
-package uk.tjevans.guildtoggle;
+package guildtoggle;
+
+import net.minecraftforge.client.event.ClientChatReceivedEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class ChatHandler {
   
-      @EventHandler
+      @SubscribeEvent
       public void checkChat(ClientChatReceivedEvent e){
           if(e.type!=0){
               return;
@@ -11,7 +14,7 @@ public class ChatHandler {
           if(!chat.startsWith("Guild > ")){
               return;
           }
-          if (GuildToggle.x==false){
+          if (!GuildToggle.x){
               e.setCanceled(true);
           }
       }
